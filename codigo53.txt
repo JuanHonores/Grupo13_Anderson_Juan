@@ -1,0 +1,72 @@
+
+#include <iostream>
+#include <math.h>
+#include <iostream>
+#include <math.h>
+
+using namespace std;
+int Aritm(int ALU[100]){
+    int Lamoda;
+    int Mimoda=0;
+    int moda[7];
+    int n;
+    int desv;
+    int var=0;
+    int z=0;
+    int i;
+    int j=0;
+    int u;
+    while (ALU[j]==0|| j==100){
+        j++;
+        i=ALU[n];
+        n++;
+        if(i == 1){
+        moda[0]++;
+        }
+        if(i == 2){
+        moda[1]++;
+        }
+        if(i == 3){
+        moda[2]++;
+        }
+        if(i == 4){
+        moda[3]++;
+        }
+        if(i == 5){
+        moda[4]++;
+        }
+        if(i == 6){
+        moda[5]++;
+        }
+        if(i == 7){
+        moda[6]++;
+        }
+        for(u=0;u=6;u++){
+            if(Mimoda<moda[u]){
+            Mimoda=moda[u];
+            Lamoda=u+1;
+            }
+        }
+        cout <<"la moda es "<<Lamoda;
+        z=i+z;
+        }
+        z=z/j;
+        cout<<"Media aritmetica :"<< z;
+        for(j=0;j<=n;j++){
+            i=ALU[n];
+            var=(i-z)^2+var;
+        }
+    var=var/j;
+    cout<<"Varianza :"<< var;
+    desv=sqrt(var);
+    cout<<"Desviación Estandar :"<<desv;
+return 0;
+}
+
+
+int main(){
+    int i;
+    int n;
+    int ALU[100];
+    Aritm(ALU[n]);
+}
