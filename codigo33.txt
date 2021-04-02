@@ -1,0 +1,44 @@
+#include <iostream>
+#include <stdio.h>
+using namespace std;
+string Bina(int n) {
+    int i,Num,cont=1; //cree 2 variables Num para seÃ±alar la igualdad y count para llevar un contadr de los leds 
+    string r;
+    string b="\n" "numero en binario: " "\n";
+    static int a[256];
+        while(n!=0){
+            if(n%2==0){
+                r += "1";
+                Num =1; 
+            }
+            else{
+                r += "0";
+                Num = 0;
+            }
+            if(Num==0){  //cree el if para cuando se apagara y se enceniera 
+                cout<< "bit numero "<<cont <<" es 0 : led "<< cont<<" off.""\n";  // :D una carita feliz para que sea vea bonito
+             }
+             else{
+                 cout<< "bit numero "<<cont << " es 1 : led "<< cont<<" on.""\n";
+             }
+             cont++;  //el contador haciendo su labor 
+            
+            n=n/2;
+           
+        }
+        cout<< b+r <<"\n";  
+        return r;
+}
+
+int main(){
+    static int a[256];
+    int i;
+    float n;
+     srand((unsigned) time ( NULL ));
+    for(i=0; i<256; i++){
+        a[i]=rand();
+        n=a[i];
+        Bina(n);
+    
+    }
+}
