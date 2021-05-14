@@ -1,0 +1,155 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "name": "Untitled1.ipynb",
+      "provenance": [],
+      "authorship_tag": "ABX9TyOMa10EpiFSlVf4mWqLu7ma",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/JuanHonores/Grupo13_Anderson_Juan/blob/master/Programacion%20orientasa%20a%20objetos\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "PMBqv_ZM3KtH"
+      },
+      "source": [
+        "obj1 = Rector(\"[Nombre]\", \"[Apellido]\", \"[edad]\")\n",
+        "obj2 = Alumno(\"[Nombre alumno]\", \"[Apellido alumno]\", \"[edad]\", \"[Colegio]\", \"[Año]\")\n",
+        "obj3 = Profesor(\"[Nombre Profesor]\", \"[Apellido Profesor]\",\"[Edad]\", \"[Institución]\", \"[Año]\")\n",
+        "obj4 = auxiliar(\"[Nombre Auxiliar]\", \"[Apellido Auxiliar]\", \"[Edad]\", \"[Funcion]\", \"[Años de experiencia]\")\n",
+        "obj5 =Alumni(\"[Nombre Alumni]\", \"[Apellido Alumni]\", \"[Edad]\",\"[Nombre colegio]\",\"[Año]\",\"[des/empleado]\",\"[Año egreso]\")"
+      ],
+      "execution_count": 61,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "-mbNN9Dt0DcG"
+      },
+      "source": [
+        "class Rector:\n",
+        "  def __init__(self, nombre, apellido, edad):\n",
+        "    self.nombre = nombre\n",
+        "    self.apellido = apellido\n",
+        "    self.edad = edad\n",
+        "  def __str__(self):\n",
+        "    return(\"Saludos cordiales, soy \"+ self.nombre+ \" \" +self.apellido+\" el rector de la escuela y tengo \" +str(self.edad) +\" años.\")\n",
+        "class Alumno(Rector):\n",
+        "  def __init__(self, nombre, apellido, edad, colegio, año):\n",
+        "    super().__init__(nombre, apellido, edad)\n",
+        "    self.colegioegreso = colegio\n",
+        "    self.añoingreso = año\n",
+        "  def set_nombre(self,nuevo_nombre):\n",
+        "    self.nombre = nuevo_nombre\n",
+        "  def get_nombre(self):\n",
+        "    return self.nombre\n",
+        "  def __str__(self):\n",
+        "    return(\"Tu eres \" +self.nombre + \" \"+ self.apellido+ \" tienes \" +str(self.edad)\n",
+        "  + \" saliste de la insitucion \" +self.colegioegreso+ \" e ingresaste a la carrera en el año \" +str(self.añoingreso)+\".\")\n",
+        "class Profesor(Rector):\n",
+        "  def __init__(self, nombre, apellido, edad, añosestudio, institucionegreso):\n",
+        "    super().__init__(nombre, apellido, edad)\n",
+        "    self.año= añosestudio\n",
+        "    self.insti= institucionegreso\n",
+        "  def get_edad(self):\n",
+        "    return self.edad\n",
+        "  def set_edad(self, nueva_edad):\n",
+        "    self.nombre = nueva_edad\n",
+        "  def __str__(self):\n",
+        "    return(\"Bienvenido estimado \" +self.nombre + \" \"+ self.apellido+ \" de\" +str(self.edad)+ \"de edad, \" + \n",
+        "\"docente en el area de Telecomunicaciones, el cual estudio durante \"+str(self.año) +\" en la prestigiosa universidad \"+ self.insti ) \n",
+        "class auxiliar(Rector):\n",
+        "  def __init__(self, nombre, apellido, edad, funcion, añosexperiencia):\n",
+        "    super().__init__(nombre, apellido, edad)\n",
+        "    self.funcion = funcion\n",
+        "    self.exp = añosexperiencia\n",
+        "  def get_edad(self):\n",
+        "    return self.edad\n",
+        "  def __str__(self):\n",
+        "    return(\"Tu eres \" +self.nombre + \" \"+ self.apellido+ \" tienes \" +str(self.edad)+ \" , tu funcion es  \" +self.funcion \n",
+        "  + \" y tienes \" +str(self.exp)+\" años de experiencia.\")"
+      ],
+      "execution_count": 58,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "HwrCoKb_0WMw"
+      },
+      "source": [
+        "class Alumni(Alumno):\n",
+        "  def __init__(self, nombre, apellido, edad, colegio, año, empleo, egreso):\n",
+        "    super().__init__( nombre, apellido, edad, colegio, año)\n",
+        "    self.empleado= empleo \n",
+        "    self.añoegreso= egreso\n",
+        "  def get_egreso(self):\n",
+        "    return self.añoegreso\n",
+        "  def __str__(self):\n",
+        "    return(\"Bienvenido al portal \"+self.nombre +\" \"+ self.apellido+ \" de \" +self.edad\n",
+        "+ \" años, sus caracteristicas importantes son: Egresaste del colegio \"+self.colegioegreso \n",
+        "+\" el año \"+str(self.añoingreso) +\", luego, entraste a esta universidad, en la cual te graduaste el año \"+str(self.añoegreso)  \n",
+        "+ \" y ahora te encuentras \"+self.empleado)"
+      ],
+      "execution_count": 59,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "Slrj2iH_RMoQ"
+      },
+      "source": [
+        ""
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "leSOH-rNln3p",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "efc04237-3527-4159-867a-dc417699cc6b"
+      },
+      "source": [
+        "print(obj1)\n",
+        "print(obj2)\n",
+        "print(obj5.get_egreso())"
+      ],
+      "execution_count": 63,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "Saludos cordiales, soy [Nombre] [Apellido] el rector de la escuela y tengo [edad] años.\n",
+            "Tu eres [Nombre alumno] [Apellido alumno] tienes [edad] saliste de la insitucion [Colegio] e ingresaste a la carrera en el año [Año].\n",
+            "[Año egreso]\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    }
+  ]
+}
